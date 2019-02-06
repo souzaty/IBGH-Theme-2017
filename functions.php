@@ -6,14 +6,15 @@
 * @since IBGH 1.0
 */
 
-/** Adiciona funções UNIDADES **/
-require_once 'functions/hma.php';
-require_once 'functions/heelj.php';
-require_once 'functions/upa-macapa.php';
-require_once 'functions/upa-araguaina.php';
-
-/** Configuração MENU **/
-require_once 'functions/menu.php';
+/** Configuração do MENU **/
+register_nav_menus(array(
+				'menu_topo_ibgh' => __('Menu topo IBGH', 'ibgh'),
+				'menu_principal_ibgh' => __('Menu principal IBGH', 'ibgh'),
+				'menu_principal_modal_oibgh_c1' => __('Menu principal modal O IBGH col 1', 'ibgh'),
+				'menu_principal_modal_oibgh_c2' => __('Menu principal modal O IBGH col 2', 'ibgh'),
+				'menu_principal_modal_oibgh_c3' => __('Menu principal modal O IBGH col 3', 'ibgh'),
+				'menu_principal_modal_unidades' => __('Menu principal modal Unidades', 'ibgh'),
+));
 
 // habilita o tema para gerar feed
 add_theme_support('automatic-feed-links');

@@ -52,11 +52,10 @@
 				<p class="center">
 					<img class="img-responsive avatar" src="<?php echo $link_img; ?>">
 				</p>
-				<h4 class="darkblue name-corpo-clinico center"><?php the_title(); ?></h4>
+                <h4 class="darkblue name-corpo-clinico center"><?php the_title(); ?></h4>
 				<?php $categorias = $categories = get_the_terms( $post_id, 'Especialidades' ); ?>
 				<p class="especialidade center"><?php foreach( $categorias as $categoria ) { echo $categoria->name; }?></p>
-				<p class="crm green center">CRM <?php $corpo_crm = get_post_meta($post->
-				 'corpo_crm', true); echo $corpo_crm; ?></p>
+				<p class="crm green center">CRM <?php $corpo_crm = get_post_meta($post->ID, 'corpo_crm', true); echo $corpo_crm; ?></p>
 			</div>
 			<?php endwhile;?><?php endif; ?><?php wp_reset_query(); ?>
 		</div>

@@ -644,11 +644,20 @@ cursor:pointer;
 -ms-transform: transform .6s;
 -o-transform: transform .6s;
 transition: transform .6s;
-transform-style:preserve-3d
+-webkit-transform-style:preserve-3d;
+transform-style:preserve-3d;
+overflow: visible !important;
 }
 
 .card.flipped {
-transform:rotateY(180deg)
+-webkit-transform:rotateY(180deg);
+-moz-transform:rotateY(180deg);
+-ms-transform:rotateY(180deg);
+-o-transform:rotateY(180deg);
+transform:rotateY(180deg);
+-webkit-transform-style:preserve-3d;
+transform-style:preserve-3d;
+overflow: visible !important;
 }
 
 .card .front,.card .back {
@@ -671,7 +680,10 @@ padding-right:15%;
 font-size:16px;
 text-align:left;
 line-height:25px;
-transform:rotateY(180deg)
+transform:rotateY(180deg);
+-webkit-transform:rotateY(180deg);
+-moz-transform:rotateY(180deg);
+-o-transform:rotateY(180deg);
 }
 
 // 20px gutter
@@ -2309,7 +2321,7 @@ margin-top:12px;
 margin-bottom:10px
 }
 #bs-example-navbar-collapse {
-background: #ccc;
+background: #efefef;
 border-top: 5px solid #004b77;
 }
 #bs-example-navbar-collapse-3 .navbar-nav {
@@ -2319,6 +2331,9 @@ padding-left: 10%;
 border-top: 3px solid #0072a4;
 background: #fff;
 margin:0;
+}
+#mainNav.navbar-default .navbar-nav>li>a {
+    color:#004b77!important;
 }
 .ghost {
 display: none !important;
@@ -2752,6 +2767,12 @@ line-height:30px
 
 .category-news.upa-goianesia {
 display:none
+}
+
+.info-gestao {
+    padding: 10px 0;
+    margin: 0;
+    background: #efefef;
 }
 
 .gform_body {

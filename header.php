@@ -91,7 +91,7 @@
 			    }
 			    else if (strpos("[".$url."]", "$sel_header1") || strpos("[".$url."]", "$sel_head1"))
 			    {
-				    get_template_part( 'headers/header', 'hma' );
+				    get_template_part( 'headers/header', 'ibgh' );
 			    }else if (strpos("[".$url."]", "$sel_header2") || strpos("[".$url."]", "$sel_head2"))
 			    {
 				    get_template_part( 'headers/header', 'upa-araguaina' );
