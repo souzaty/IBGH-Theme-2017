@@ -6,7 +6,7 @@
 * @since IBGH 1.0
 */
 
-/** Configuração do MENU **/
+// ========== Start Menu
 register_nav_menus(array(
 				'menu_topo_ibgh' => __('Menu topo IBGH', 'ibgh'),
 				'menu_principal_ibgh' => __('Menu principal IBGH', 'ibgh'),
@@ -16,7 +16,9 @@ register_nav_menus(array(
 				'menu_principal_modal_unidades' => __('Menu principal modal Unidades', 'ibgh'),
 ));
 
-// habilita o tema para gerar feed
+// ========== Start Theme Suport
+
+// --- Generate feed links
 add_theme_support('automatic-feed-links');
 
 // Paginação
@@ -68,50 +70,6 @@ return $items;
 // Enable the use of shortcodes in text widgets.
 add_filter('widget_text', 'do_shortcode');
 
-// Shortecode backface HOME IBGH
-function ibgh_backface($atts, $content = null)
-{
-				$inicio_tab = '<div class="card">';
-				$fim_tab    = '</div>';
-				return ($inicio_tab . do_shortcode(wpautop($content)) . $fim_tab);
-}
-add_shortcode("backface", "ibgh_backface");
-function ibgh_backface_front($atts, $content = null)
-{
-				extract(shortcode_atts(array(
-								'class' => 'front',
-								'title' => '',
-								'content' => '',
-								'image' => ''
-				), $atts));
-				$incio_cont = '<div class="' . $class . '">';
-				$meio_cont  = '<img class="card-icons" src="' . $image . '" alt="familias atendidas">
-				  <h4 class="enfase-numeros">' . $title . '</h4>
-                  <p style="font-size:0.5em; line-height: 2.5em;">' . $content . '</p>
-              ';
-				$fim_cont   = '</div>';
-				return ($incio_cont . $meio_cont . $fim_cont);
-}
-add_shortcode("backfacefront", "ibgh_backface_front");
-function ibgh_backface_back($atts, $content = null)
-{
-				$inicio_tab = '<div class="back"><span class="glyphicon glyphicon-chevron-up up"></span>';
-				$fim_tab    = '</div>';
-				return ($inicio_tab . do_shortcode($content) . $fim_tab);
-}
-add_shortcode("backfaceback", "ibgh_backface_back");
-
-//remove a tag paragrafo das páginas
-remove_filter('the_content', 'wpautop');
-add_filter('the_content', 'my_custom_formatting');
-function my_custom_formatting($content)
-{
-				if (get_post_type() == 'page') //if it does not work, you may want to pass the current post object to get_post_type
-								return $content; //no autop
-				else
-								return wpautop($content);
-}
-//FIM SHORTCODE BACKFACE HOME IBGH
 
 // INÍCIO CUSTOM POST DIRETORIA E CONSELHO
 add_action('init', 'diretoria_conselho');
@@ -338,111 +296,6 @@ function save_details_post_unidades()
 				update_post_meta($post->ID, "link_unidade", $_POST["link_unidade"]);
 }
 // FIM CUSTOM POST UNIDADES
-
-// INICIO SHORTCODE CARROUSEL MEMBROS E CONSELHO IBGH HOME
-function carousel_membros_short($atts)
-{
-				ob_start();
-?>
-<section id="ibgh">
-   <div class="container">
-
-     <div class="row gutter-10">
-      <div class="carousel slide membros" data-ride="carousel" data-type="multi" data-interval="10000" id="myCarouselMembros">
-		<div class="carousel-inner" >
-
-      <?php
-		global $post;
-		$wp_query = new WP_Query();
-		$wp_query->query('post_type=membros&posts_per_page=-1&orderby=date&order=ASC');
-		$count = 0;
-?>
-      <?php
-		if ($wp_query->have_posts()):
-						while ($wp_query->have_posts()):
-										$wp_query->the_post();
-										$count++;
-?>
-
-         <div class="item <?php
-										if ($count == 1) {
-														echo active;
-										} else {
-										}
-?>">
-         <div class="col-md-3 <?php
-										the_title();
-?>">
-            <div class="card-office">
-            <?php
-										$categorias = $categories = get_the_terms($post_id, 'Sessao');
-?>
-               <h3 class="<?php
-										foreach ($categorias as $categoria) {
-														echo $categoria->slug;
-										}
-?>"><?php
-										foreach ($categorias as $categoria) {
-														echo $categoria->name;
-										}
-?></h3>
-                  <div class="filter">
-                  	<?php
-										if (has_post_thumbnail()) {
-														the_post_thumbnail('membros-diretoria', array(
-																		'class' => 'pic-office',
-																		'title' => 'Conselho'
-														));
-										}
-?>
-                  </div>
-                  <h4 class="cargo">
-
-                  	<?php
-										$cargo_membro = get_post_meta($post->ID, 'cargo_membro', true);
-?>
-                  	<?php
-										echo $cargo_membro;
-?>
-                  </h4>
-
-                  <h3 class="nome"><?php
-										the_title();
-?></h3>
-                  <h4 class="civil">
-                  	<?php
-										$sub_cargo_membro = get_post_meta($post->ID, 'sub_cargo_membro', true);
-?>
-                  	<?php
-										echo $sub_cargo_membro;
-?>
-                  </h4>
-            </div>
-            </div>
-         </div>
-		<?php
-						endwhile;
-		endif;
-		wp_reset_query();
-?>
-       </div>
-	  </div>
-	  <div class="col-md-12">
-            <div class="control-conselho">
-               <a class="conselho-previous left" href="#myCarouselMembros" data-slide="prev"></a>
-               <a class="conselho-next right" href="#myCarouselMembros" data-slide="next"></a>
-            </div>
-         </div>
-      </div><!-- End row gutter-10 -->
-   </div>
-</section>
-<?php
-	$content = ob_get_contents();
-	ob_end_clean();
-	return $content;
-}
-add_shortcode('carousel_membros', 'carousel_membros_short');
-//FIM SHORTCODE CARROUSEL MEMBROS E CONSELHO IBGH HOME
 
 // ========== Start Widgets
 
@@ -890,6 +743,156 @@ add_action('wp_ajax_nopriv_buscaTransparencia', 'buscaTransparencia');
 // --- Endt CPT Transparencia
 
 // ========== Start Shortcodes
+
+// --- Start Shortcode Cards Home
+function ibgh_backface($atts, $content = null)
+{
+				$inicio_tab = '<div class="card">';
+				$fim_tab    = '</div>';
+				return ($inicio_tab . do_shortcode(wpautop($content)) . $fim_tab);
+}
+add_shortcode("backface", "ibgh_backface");
+function ibgh_backface_front($atts, $content = null)
+{
+				extract(shortcode_atts(array(
+								'class' => 'front',
+								'title' => '',
+								'content' => '',
+								'image' => ''
+				), $atts));
+				$incio_cont = '<div class="' . $class . '">';
+				$meio_cont  = '<img class="card-icons" src="' . $image . '" alt="familias atendidas">
+				  <h4 class="enfase-numeros">' . $title . '</h4>
+                  <p style="font-size:0.5em; line-height: 2.5em;">' . $content . '</p>
+              ';
+				$fim_cont   = '</div>';
+				return ($incio_cont . $meio_cont . $fim_cont);
+}
+add_shortcode("backfacefront", "ibgh_backface_front");
+function ibgh_backface_back($atts, $content = null)
+{
+				$inicio_tab = '<div class="back"><span class="glyphicon glyphicon-chevron-up up"></span>';
+				$fim_tab    = '</div>';
+				return ($inicio_tab . do_shortcode($content) . $fim_tab);
+}
+add_shortcode("backfaceback", "ibgh_backface_back");
+
+//remove a tag paragrafo das páginas
+remove_filter('the_content', 'wpautop');
+add_filter('the_content', 'my_custom_formatting');
+function my_custom_formatting($content)
+{
+				if (get_post_type() == 'page') //if it does not work, you may want to pass the current post object to get_post_type
+								return $content; //no autop
+				else
+								return wpautop($content);
+}
+// --- End Shortcode Cards Home
+
+// --- Start Shortcode Carrouseel membros
+function carousel_membros_short($atts)
+{
+				ob_start();
+?>
+<section id="ibgh">
+   <div class="container">
+
+     <div class="row gutter-10">
+      <div class="carousel slide membros" data-ride="carousel" data-type="multi" data-interval="10000" id="myCarouselMembros">
+		<div class="carousel-inner" >
+
+      <?php
+		global $post;
+		$wp_query = new WP_Query();
+		$wp_query->query('post_type=membros&posts_per_page=-1&orderby=date&order=ASC');
+		$count = 0;
+?>
+      <?php
+		if ($wp_query->have_posts()):
+						while ($wp_query->have_posts()):
+										$wp_query->the_post();
+										$count++;
+?>
+
+         <div class="item <?php
+										if ($count == 1) {
+														echo active;
+										} else {
+										}
+?>">
+         <div class="col-md-3 <?php
+										the_title();
+?>">
+            <div class="card-office">
+            <?php
+										$categorias = $categories = get_the_terms($post_id, 'Sessao');
+?>
+               <h3 class="<?php
+										foreach ($categorias as $categoria) {
+														echo $categoria->slug;
+										}
+?>"><?php
+										foreach ($categorias as $categoria) {
+														echo $categoria->name;
+										}
+?></h3>
+                  <div class="filter">
+                  	<?php
+										if (has_post_thumbnail()) {
+														the_post_thumbnail('membros-diretoria', array(
+																		'class' => 'pic-office',
+																		'title' => 'Conselho'
+														));
+										}
+?>
+                  </div>
+                  <h4 class="cargo">
+
+                  	<?php
+										$cargo_membro = get_post_meta($post->ID, 'cargo_membro', true);
+?>
+                  	<?php
+										echo $cargo_membro;
+?>
+                  </h4>
+
+                  <h3 class="nome"><?php
+										the_title();
+?></h3>
+                  <h4 class="civil">
+                  	<?php
+										$sub_cargo_membro = get_post_meta($post->ID, 'sub_cargo_membro', true);
+?>
+                  	<?php
+										echo $sub_cargo_membro;
+?>
+                  </h4>
+            </div>
+            </div>
+         </div>
+		<?php
+						endwhile;
+		endif;
+		wp_reset_query();
+?>
+       </div>
+	  </div>
+	  <div class="col-md-12">
+            <div class="control-conselho">
+               <a class="conselho-previous left" href="#myCarouselMembros" data-slide="prev"></a>
+               <a class="conselho-next right" href="#myCarouselMembros" data-slide="next"></a>
+            </div>
+         </div>
+      </div><!-- End row gutter-10 -->
+   </div>
+</section>
+<?php
+	$content = ob_get_contents();
+	ob_end_clean();
+	return $content;
+}
+add_shortcode('carousel_membros', 'carousel_membros_short');
+// --- End Shortcode Carrouseel membros
 
 // --- Start Shortcode Unidades Footer
 function carousel_unidades_short($atts) {
