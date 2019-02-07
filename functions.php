@@ -503,7 +503,7 @@ register_sidebar(array(
 register_sidebar(array(
 	'name' => 'Sala de Imprensa',
 	'id' => 'sala-impresa',
-	'description' => '',
+	'description' => 'Aparece na área na barra lateral da página de Sala de Imprensa',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h4 class="widget-title">',
