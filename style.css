@@ -1,15 +1,3 @@
-/*
-Theme Name: IBGH versão 1.4 Beta
-*/
-
-/**
- * 1.4 - Reset
- *
- * Resetting and rebuilding styles have been helped along thanks to the fine
- * work of Eric Meyer, Nicolas Gallagher, Jonathan Neal, and Blueprint.
- */
-
- @charset "UTF-8";
  /*
  Theme Name: IBGH
  Theme URI: https://github.com/souzaty/IBGH-Theme-2017
@@ -55,6 +43,14 @@ Theme Name: IBGH versão 1.4 Beta
  	## Captions
  	## Galleries
  --------------------------------------------------------------*/
+ /**
+  * 1.4 - Reset
+  *
+  * Resetting and rebuilding styles have been helped along thanks to the fine
+  * work of Eric Meyer, Nicolas Gallagher, Jonathan Neal, and Blueprint.
+  */
+
+  
  /*
   * Chrome renders extra-wide &nbsp; characters for the Hoefler Text font.
   * This results in a jumping cursor when typing in both the Classic and block
