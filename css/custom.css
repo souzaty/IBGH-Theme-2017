@@ -74,7 +74,7 @@ font-weight:800
 }
 
 h1.title-post {
-    padding-top: 20px;
+    padding-top: 50px;
     font-weight: bold !important;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif !important;
     font-style: normal !important;
@@ -1093,7 +1093,8 @@ text-transform:uppercase
 }
 
 footer a {
-color:#fff
+color:#fff;
+display: inline-block;
 }
 
 footer a:hover {
@@ -1104,7 +1105,8 @@ text-decoration:underline
 
 footer p {
 font-size:1em;
-margin:10px 0
+margin:10px 0;
+padding: 0 !important;
 }
 
 .footer-menu {
