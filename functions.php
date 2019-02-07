@@ -5,6 +5,37 @@
 * @subpackage IBGH
 * @since IBGH 1.0
 */
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Menu
+# Normalize
+# Theme Suport
+  ## Feed Links
+  ## Pagination
+  ## Thumbnails Sizes
+  ## HTML 5 Support
+  ## Post Formats
+  ## Remove Meta Generator
+# Widgets
+# CPT Custom Post Types
+  ## CPT Diretoria
+  ## CPT Unidades
+  ## CPT Indicadores
+  ## CPT Transparencia
+# Shortcodes
+  ## Cards Home
+  ## Carrouseel membros
+  ## Unidades Footer
+  ## Pesquisa Sidebar
+  ## Indicadores Sidebar
+  ## Missao Visao
+  ## Principios
+  ## Indicadores full
+# Script button upload
+# Excerpt
+# WP-login Customization
+--------------------------------------------------------------*/
 
 // ========== Start Menu
 register_nav_menus(array(
@@ -18,7 +49,7 @@ register_nav_menus(array(
 
 // ========== Start Theme Suport
 
-// --- Generate feed links
+// Generate Feed Links
 add_theme_support('automatic-feed-links');
 
 // Paginação
@@ -67,11 +98,75 @@ if ($args->theme_location == 'menu_topo_ibgh')
 return $items;
 }
 
-// Enable the use of shortcodes in text widgets.
-add_filter('widget_text', 'do_shortcode');
+// ========== Start Widgets
 
+register_sidebar(array(
+	'name' => 'Footer Sidebar 1',
+	'id' => 'ibgh-footer-sidebar-1',
+	'description' => 'Aparece na área de rodapé',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
+	'after_widget' => '</aside>',
+	'before_title' => '<h4 class="widget-title">',
+	'after_title' => '</h4>'
+));
+register_sidebar(array(
+	'name' => 'Footer Sidebar 2',
+	'id' => 'ibgh-footer-sidebar-2',
+	'description' => 'Aparece na área de rodapé',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
+	'after_widget' => '</aside>',
+	'before_title' => '<h4 class="widget-title">',
+	'after_title' => '</h4>'
+));
+register_sidebar(array(
+	'name' => 'Footer Sidebar 3',
+	'id' => 'ibgh-footer-sidebar-3',
+	'description' => 'Aparece na área de rodapé',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
+	'after_widget' => '</aside>',
+	'before_title' => '<h4 class="widget-title">',
+	'after_title' => '</h4>'
+));
+register_sidebar(array(
+	'name' => 'Footer Sidebar 4',
+	'id' => 'ibgh-footer-sidebar-4',
+	'description' => 'Aparece na área de rodapé',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
+	'after_widget' => '</aside>',
+	'before_title' => '<h4 class="widget-title">',
+	'after_title' => '</h4>'
+));
+register_sidebar(array(
+	'name' => 'Blog',
+	'id' => 'blog-ibgh',
+	'description' => 'Aparece na área de Blog',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	'after_widget' => '</aside>',
+	'before_title' => '<h4 class="widget-title">',
+	'after_title' => '</h4>'
+));
+register_sidebar(array(
+	'name' => 'Eventos e Treinamentos',
+	'id' => 'eventos-treinamentos-ibgh',
+	'description' => 'Aparece na área na barra lateral da página de Eventos e Treinamentos',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	'after_widget' => '</aside>',
+	'before_title' => '<h4 class="widget-title">',
+	'after_title' => '</h4>'
+));
+register_sidebar(array(
+	'name' => 'Sala de Imprensa',
+	'id' => 'sala-impresa',
+	'description' => 'Aparece na área na barra lateral da página de Sala de Imprensa',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	'after_widget' => '</aside>',
+	'before_title' => '<h4 class="widget-title">',
+	'after_title' => '</h4>'
+));
 
-// INÍCIO CUSTOM POST DIRETORIA E CONSELHO
+// ========== Start CPT - Custom Post Types
+
+// Start CPT Diretoria
 add_action('init', 'diretoria_conselho');
 function diretoria_conselho()
 {
@@ -128,7 +223,7 @@ register_taxonomy("Sessao", array(
 				"show_ui" => true,
 				"_builtin" => true
 ));
-/* Filtro per modificare il permalink*/
+// Filter to change the permalink
 add_filter('post_link', 'sessao_permalink', 1, 3);
 add_filter('post_type_link', 'sessao_permalink', 1, 3);
 function sessao_permalink($permalink, $post_id, $leavename)
@@ -206,9 +301,9 @@ function membros_custom_columns($column)
 												break;
 				}
 }
-// FIM CUSTOM POST DIRETORIA E CONSELHO
+// End CPT Diretoria
 
-// INÍCIO CUSTOM POST UNIDADES
+// Start CPT Unidades
 add_action('init', 'unidades_register');
 function unidades_register()
 {
@@ -249,7 +344,7 @@ function unidades_register()
 				register_post_type('unidades', $args);
 				flush_rewrite_rules();
 }
-/* Filtro modifica permalink */
+// Filter to change the permalink
 add_filter('post_link', 'unidades_permalink', 1, 3);
 add_filter('post_type_link', 'unidades_permalink', 1, 3);
 function unidades_permalink($permalink, $post_id, $leavename)
@@ -295,77 +390,9 @@ function save_details_post_unidades()
 				global $post;
 				update_post_meta($post->ID, "link_unidade", $_POST["link_unidade"]);
 }
-// FIM CUSTOM POST UNIDADES
+// End CPT Unidades
 
-// ========== Start Widgets
-
-register_sidebar(array(
-	'name' => 'Footer Sidebar 1',
-	'id' => 'ibgh-footer-sidebar-1',
-	'description' => 'Aparece na área de rodapé',
-	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
-	'after_widget' => '</aside>',
-	'before_title' => '<h4 class="widget-title">',
-	'after_title' => '</h4>'
-));
-register_sidebar(array(
-	'name' => 'Footer Sidebar 2',
-	'id' => 'ibgh-footer-sidebar-2',
-	'description' => 'Aparece na área de rodapé',
-	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
-	'after_widget' => '</aside>',
-	'before_title' => '<h4 class="widget-title">',
-	'after_title' => '</h4>'
-));
-register_sidebar(array(
-	'name' => 'Footer Sidebar 3',
-	'id' => 'ibgh-footer-sidebar-3',
-	'description' => 'Aparece na área de rodapé',
-	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
-	'after_widget' => '</aside>',
-	'before_title' => '<h4 class="widget-title">',
-	'after_title' => '</h4>'
-));
-register_sidebar(array(
-	'name' => 'Footer Sidebar 4',
-	'id' => 'ibgh-footer-sidebar-4',
-	'description' => 'Aparece na área de rodapé',
-	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
-	'after_widget' => '</aside>',
-	'before_title' => '<h4 class="widget-title">',
-	'after_title' => '</h4>'
-));
-register_sidebar(array(
-	'name' => 'Blog',
-	'id' => 'blog-ibgh',
-	'description' => 'Aparece na área de Blog',
-	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-	'after_widget' => '</aside>',
-	'before_title' => '<h4 class="widget-title">',
-	'after_title' => '</h4>'
-));
-register_sidebar(array(
-	'name' => 'Eventos e Treinamentos',
-	'id' => 'eventos-treinamentos-ibgh',
-	'description' => 'Aparece na área na barra lateral da página de Eventos e Treinamentos',
-	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-	'after_widget' => '</aside>',
-	'before_title' => '<h4 class="widget-title">',
-	'after_title' => '</h4>'
-));
-register_sidebar(array(
-	'name' => 'Sala de Imprensa',
-	'id' => 'sala-impresa',
-	'description' => 'Aparece na área na barra lateral da página de Sala de Imprensa',
-	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-	'after_widget' => '</aside>',
-	'before_title' => '<h4 class="widget-title">',
-	'after_title' => '</h4>'
-));
-
-// ========== Start CPT
-
-// --- Start CPT Indicadores
+// Start CPT Indicadores
 add_action('init', 'indicadores_ibgh');
 function indicadores_ibgh() {
 	$labels = array(
@@ -517,9 +544,9 @@ function save_details_post_indicadores_ibgh() {
 	update_post_meta($post->ID, "data_acumulado_ibgh", $_POST["data_acumulado_ibgh"]);
 	update_post_meta($post->ID, "frase_ibgh", $_POST["frase_ibgh"]);
 }
-// --- End CPT Indicadores
+// End CPT Indicadores
 
-// --- Start CPT Transparência
+// Start CPT Transparência
 add_action('init', 'transparencia_register');
 function transparencia_register()
 {
@@ -585,7 +612,7 @@ register_taxonomy("Tipo documento", array(
 				"show_ui" => true,
 				"_builtin" => true
 ));
-/* Filtro para modificar permalink */
+// Filter to change the permalink
 add_filter('post_link', 'transparencia_permalink', 1, 3);
 add_filter('post_type_link', 'transparencia_permalink', 1, 3);
 function transparencia_permalink($permalink, $post_id, $leavename)
@@ -740,11 +767,14 @@ function buscaTransparencia()
 // Adiciona a funcao extra votos aos hooks ajax do WordPress.
 add_action('wp_ajax_buscaTransparencia', 'buscaTransparencia');
 add_action('wp_ajax_nopriv_buscaTransparencia', 'buscaTransparencia');
-// --- Endt CPT Transparencia
+// Endt CPT Transparencia
 
 // ========== Start Shortcodes
 
-// --- Start Shortcode Cards Home
+// Enable the use of shortcodes in text widgets.
+add_filter('widget_text', 'do_shortcode');
+
+// Start Shortcode Cards Home
 function ibgh_backface($atts, $content = null)
 {
 				$inicio_tab = '<div class="card">';
@@ -787,9 +817,9 @@ function my_custom_formatting($content)
 				else
 								return wpautop($content);
 }
-// --- End Shortcode Cards Home
+// End Shortcode Cards Home
 
-// --- Start Shortcode Carrouseel membros
+// Start Shortcode Carrouseel membros
 function carousel_membros_short($atts)
 {
 				ob_start();
@@ -892,9 +922,9 @@ function carousel_membros_short($atts)
 	return $content;
 }
 add_shortcode('carousel_membros', 'carousel_membros_short');
-// --- End Shortcode Carrouseel membros
+// End Shortcode Carrouseel membros
 
-// --- Start Shortcode Unidades Footer
+// Start Shortcode Unidades Footer
 function carousel_unidades_short($atts) {
 	ob_start();
 ?>
@@ -953,9 +983,9 @@ function carousel_unidades_short($atts) {
 		return $content;
 }
 add_shortcode('carousel_unidades', 'carousel_unidades_short');
-// --- End Shortcode Unidades Footer
+// End Shortcode Unidades Footer
 
-// --- Start Shortcode Pesquisa Sidebar
+// Start Shortcode Pesquisa Sidebar
 function pesquisa_sidebar_($atts)
 {
 				ob_start();
@@ -982,9 +1012,9 @@ function pesquisa_sidebar_($atts)
 				return $content;
 }
 add_shortcode('pesquisa_sidebar', 'pesquisa_sidebar_');
-// --- End Shortcode Pesquisa Sidebar
+// End Shortcode Pesquisa Sidebar
 
-// --- Start Shortcode Indicadores Sidebar
+// Start Shortcode Indicadores Sidebar
 function indicadores_sidebar_($atts)
 {
 				extract(shortcode_atts(array(
@@ -1252,9 +1282,9 @@ function indicadores_sidebar_($atts)
 				return $content;
 }
 add_shortcode('indicadores_sidebar', 'indicadores_sidebar_');
-// --- End Shortcode Indicadores Sidebar
+// End Shortcode Indicadores Sidebar
 
-// --- Start Shortcode Missão Visão
+// Start Shortcode Missão Visão
 function ibgh_mv($atts, $content = null)
 {
 				$inicio_tab = '<section id="missao-visao">
@@ -1289,9 +1319,9 @@ function ibgh_visao($atts, $content = null)
 				return ($incio_cont . $meio_cont . $fim_cont);
 }
 add_shortcode("visao", "ibgh_visao");
-// --- End Shortcode Missão Visão
+// End Shortcode Missão Visão
 
-// --- Start Shortcode Princípios
+// Start Shortcode Princípios
 function ibgh_principios($atts, $content = null)
 {
 				$inicio_tab = '<section id="valores" class="bg-green">
@@ -1328,9 +1358,9 @@ function ibgh_principio($atts, $content = null)
 				return ($incio_cont . $meio_cont . $fim_cont);
 }
 add_shortcode("principio", "ibgh_principio"); // add_filter( 'the_content', 'shortcode_unautop',100 );
-// --- End Shortcode Princípios
+// End Shortcode Princípios
 
-// --- Start Shortcodes Indicadore Sidebar
+// Start Shortcodes Indicadores Full
 function indicadores_ibgh_($atts)
 {
 				ob_start();
@@ -1547,9 +1577,9 @@ function indicadores_ibgh_($atts)
 				return $content;
 }
 add_shortcode('indicadores_ibgh', 'indicadores_ibgh_');
-// --- End Shortcode Indicadores Sidebar
+// End Shortcode Indicadores full
 
-// INICIO SCRIPT PARA BOTÃO UPLOAD EM ADD META BOX
+// Start Script add meta box button upload
 add_action('admin_head', 'my_meta_uploader_script');
 /*
  * O novo media uploader, baseado no post e nas discussões do site abaixo
@@ -1606,108 +1636,9 @@ function my_admin_styles()
 }
 add_action('admin_print_scripts', 'my_admin_scripts');
 add_action('admin_print_styles', 'my_admin_styles');
-// End SCRIPT BOTÃO UPLOAD EM ADD META BOX
+// End Script add meta box button upload
 
-// --- Start breadcrumbs Wordpress
-function wp_custom_breadcrumbs()
-{
-				$showOnHome  = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
-				$delimiter   = '>'; // delimiter between crumbs
-				$home        = 'Voc&ecirc; est&aacute; em'; // text for the 'Home' link
-				$showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
-				$before      = '<span class="current">'; // tag before the current crumb
-				$after       = '</span>'; // tag after the current crumb
-				global $post;
-				$homeLink = get_bloginfo('url');
-				if (is_home() || is_front_page()) {
-								if ($showOnHome == 1)
-												echo '<div id="crumbs"><a href="' . $homeLink . '">' . $home . '</a></div>';
-				} else {
-								echo '<div id="crumbs">' . $home . ' ';
-								if (is_category()) {
-												$thisCat = get_category(get_query_var('cat'), false);
-												if ($thisCat->parent != 0)
-																echo get_category_parents($thisCat->parent, TRUE, ' ' . $delimiter . ' ');
-												echo $before . 'categoria "' . single_cat_title('', false) . '"' . $after;
-								} elseif (is_search()) {
-												echo $before . 'Resultados encontrados para "' . get_search_query() . '"' . $after;
-								} elseif (is_day()) {
-												echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
-												echo '<a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . ' ';
-												echo $before . get_the_time('d') . $after;
-								} elseif (is_month()) {
-												echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
-												echo $before . get_the_time('F') . $after;
-								} elseif (is_year()) {
-												echo $before . get_the_time('Y') . $after;
-								} elseif (is_single() && !is_attachment()) {
-												if (get_post_type() != 'post') {
-																$post_type = get_post_type_object(get_post_type());
-																$slug      = $post_type->rewrite;
-																echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
-																if ($showCurrent == 1)
-																				echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
-												} else {
-																$cat  = get_the_category();
-																$cat  = $cat[0];
-																$cats = get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
-																if ($showCurrent == 0)
-																				$cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
-																echo $cats;
-																if ($showCurrent == 1)
-																				echo $before . get_the_title() . $after;
-												}
-								} elseif (!is_single() && !is_page() && get_post_type() != 'post' && !is_404()) {
-												$post_type = get_post_type_object(get_post_type());
-												echo $before . $post_type->labels->singular_name . $after;
-								} elseif (is_attachment()) {
-												$parent = get_post($post->post_parent);
-												$cat    = get_the_category($parent->ID);
-												$cat    = $cat[0];
-												echo get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
-												echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>';
-												if ($showCurrent == 1)
-																echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
-								} elseif (is_page() && !$post->post_parent) {
-												if ($showCurrent == 1)
-																echo $before . get_the_title() . $after;
-								} elseif (is_page() && $post->post_parent) {
-												$parent_id   = $post->post_parent;
-												$breadcrumbs = array();
-												while ($parent_id) {
-																$page          = get_page($parent_id);
-																$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
-																$parent_id     = $page->post_parent;
-												}
-												$breadcrumbs = array_reverse($breadcrumbs);
-												for ($i = 0; $i < count($breadcrumbs); $i++) {
-																echo $breadcrumbs[$i];
-																if ($i != count($breadcrumbs) - 1)
-																				echo ' ' . $delimiter . ' ';
-												}
-												if ($showCurrent == 1)
-																echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
-								} elseif (is_tag()) {
-												echo $before . 'Posts tagged "' . single_tag_title('', false) . '"' . $after;
-								} elseif (is_author()) {
-												global $author;
-												$userdata = get_userdata($author);
-												echo $before . 'Articles posted by ' . $userdata->display_name . $after;
-								} elseif (is_404()) {
-												echo $before . 'Error 404' . $after;
-								}
-								if (get_query_var('paged')) {
-												if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author())
-																echo ' (';
-												echo __('Page') . ' ' . get_query_var('paged');
-												if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author())
-																echo ')';
-								}
-								echo '</div>';
-				}
-}
-// --- End Breadcrumbs Wordpress
-
+// Start Excerpt
 function the_excerpt_lenght($before = '', $after = '', $echo = true, $length = false)
 {
 				$excerpt = get_the_excerpt();
@@ -1725,7 +1656,7 @@ function the_excerpt_lenght($before = '', $after = '', $echo = true, $length = f
 
 // ========== Start Customize wp-login Page
 
-// --- Start Customize wp-login Page
+// Start Customize wp-login Page
 function login_styles() { ?>
  <style type="text/css">
  body {
@@ -1765,16 +1696,16 @@ function login_styles() { ?>
 
 add_action('login_enqueue_scripts', 'login_styles', 10);
 
-// --- URL Logo Login
+// URL Logo Login
 function my_login_logo_url() {
     return get_bloginfo( 'url' );
 }
 add_filter( 'login_headerurl', 'my_login_logo_url' );
 
-// --- Change Alt Attribute
+// Change Alt Attribute
 function my_login_logo_url_title() {
     return 'IBGH - Instituto Brasileiro de Gestão Hospitalar.';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
-// --- End Customize wp-login Page
+// End Customize wp-login Page
 ?>
