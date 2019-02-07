@@ -53,6 +53,10 @@ add_theme_support('post-formats', array(
 				'audio',
 				'chat'
 ));
+// Remove Meta Generator
+remove_action('wp_head', 'wp_generator');
+
+
 add_filter('wp_nav_menu_items', 'add_search_box_to_menu', 10, 2);
 function add_search_box_to_menu($items, $args)
 {
@@ -1715,3 +1719,59 @@ function the_excerpt_lenght($before = '', $after = '', $echo = true, $length = f
 												return $excerpt;
 				}
 }
+
+// ========== Start Customize wp-login Page
+
+// --- Start Customize wp-login Page
+function login_styles() { ?>
+ <style type="text/css">
+ body {
+     background: #f1f1f1 !important;
+
+ }
+ #wp-submit {
+     border: none !important;
+     box-shadow: none !important;
+     background: #21b9eb !important;
+     text-shadow: none !important;
+     border-radius: 4px !important;
+     -webkit-border-radius: 4px !important;
+     color: #fff !important;
+     display: block;
+     width: 100% !important;
+     margin: 30px 0 0 0 !important;
+     font-size: 16px;
+     padding: 5px 0 !important;
+     height: auto !important;
+     transition: all 0.5s;
+ }
+ #wp-submit:hover {
+     background: #009ee4 !important;
+ }
+ .login h1 a {
+     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/ibgh-logo-login.png') !important;
+     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/ibgh-logo-login.png') !important;
+     background-size: 100% !important;
+     background-position: center center !important;
+     background-repeat: no-repeat;
+     height: 90px !important;
+     width: 320px !important;
+ }
+ </style>
+<?php }
+
+add_action('login_enqueue_scripts', 'login_styles', 10);
+
+// --- URL Logo Login
+function my_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+// --- Change Alt Attribute
+function my_login_logo_url_title() {
+    return 'IBGH - Instituto Brasileiro de Gestão Hospitalar.';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+// --- End Customize wp-login Page
+?>
