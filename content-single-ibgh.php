@@ -1,17 +1,9 @@
-<?php
-/**
- * @package WordPress
- * @subpackage IBGH
- * @since IBGH 1.0
- */
- get_header(); ?>
-
 <!-- Section title Page -->
 <section class="interna-ibgh title-page">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="title-post"><?php the_title(); ?></h1>
+				<h1><?php the_title(); ?></h1>
 			</div>
 		</div>
 	</div>
@@ -114,4 +106,3 @@
 		</div>
 	</div>
 </section>
-<?php get_footer(); ?>

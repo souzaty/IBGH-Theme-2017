@@ -1,3 +1,36 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Variables
+# Normalize
+# Typography
+   ## Headings
+   ## Copy
+# Elements
+   ## Lists
+   ## Tables
+# Forms
+   ## Buttons
+   ## Fields
+# Navigation
+   ## Links
+   ## Menus
+   ## Next & Previous
+# Accessibility
+# Alignments
+# Clearings
+# Layout
+# Widgets
+# Content
+   ## Archives
+   ## Posts and pages
+   ## Comments
+# Blocks
+# Media
+   ## Captions
+   ## Galleries
+--------------------------------------------------------------*/
+
 body {
 overflow-x:hidden;
 font-family:'Nunito',sans-serif;
@@ -38,6 +71,13 @@ font-size:3.5em;
 margin:25px 0;
 font-family:'Nunito',sans-serif;
 font-weight:800
+}
+
+h1.title-post {
+    padding-top: 20px;
+    font-weight: bold !important;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-style: normal !important;
 }
 
 h3 {

@@ -21,37 +21,37 @@
 					<?php wp_nav_menu( array(
 
 						'menu' => 'menu_topo_ibgh',
-						
+
 						'theme_location' => 'menu_topo_ibgh',
-						
+
 						'container' => 'div',
-						
+
 						'container_class' => 'collapse navbar-collapse',
-						
+
 						'container_id' => 'bs-example-navbar-collapse-1',
-						
+
 						'menu_class' => 'nav navbar-nav navbar-right',
-						
+
 						'echo' => true,
-						
+
 						'menu_id' => 'id_do_menu',
-						
+
 						'before' => "",
-						
+
 						'after' => "",
-						
+
 						'link_before' => "",
-						
+
 						'link_after' => "",
-						
+
 						'depth' => 0,
-						
+
 						'walker' => "",
-						
+
 						) );
 					?>
 			<!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->	
+			</div><!-- /.container-fluid -->
 		</div>
 	</nav>
 </div>
@@ -74,34 +74,34 @@
 					<div class="col-md-9" style="padding:0;">
 						<?php wp_nav_menu ( array (
 
-							'menu' => 'menu_principal_ibgh', 
-							
+							'menu' => 'menu_principal_ibgh',
+
 							'theme_location' => 'menu_principal_ibgh',
-							
+
 							'container' => 'div',
-							
+
 							'container_class' => 'collapse navbar-collapse',
-							
+
 							'container_id' => 'bs-example-navbar-collapse',
-							
+
 							'menu_class' => 'nav navbar-nav navbar-right',
-							
+
 							'echo' => true,
-							
+
 							'menu_id' => 'id-menu',
-							
+
 							'before' => "",
-							
+
 							'after' => "",
-							
+
 							'link_before' => "",
-							
+
 							'link_after' => "",
-							
+
 							'depth' => 0,
-							
-							'walker' => "" 
-							
+
+							'walker' => ""
+
 							) );
 						?>
 					</div>
@@ -126,33 +126,33 @@
 											<?php wp_nav_menu ( array (
 
 												'menu' => 'menu_principal_modal_oibgh_c1',
-												
+
 												'theme_location' => 'menu_principal_modal_oibgh_c1',
-												
+
 												'container' => 'div',
-												
+
 												'container_class' => 'mega-menu',
-												
+
 												'container_id' => '',
-												
+
 												'menu_class' => '',
-												
+
 												'echo' => true,
-												
+
 												'menu_id' => 'id-menu',
-												
+
 												'before' => "",
-												
+
 												'after' => "",
-												
+
 												'link_before' => "",
-												
+
 												'link_after' => "",
-												
+
 												'depth' => 0,
-												
-												'walker' => "" 
-												
+
+												'walker' => ""
+
 												) );
 											?>
 										</div>
@@ -161,33 +161,33 @@
 											<?php wp_nav_menu ( array (
 
 												'menu' => 'menu_principal_modal_oibgh_c2',
-												
+
 												'theme_location' => 'menu_principal_modal_oibgh_c2',
-												
+
 												'container' => 'div',
-												
+
 												'container_class' => 'mega-menu',
-												
+
 												'container_id' => '',
-												
+
 												'menu_class' => '',
-												
+
 												'echo' => true,
-												
+
 												'menu_id' => 'id-menu',
-												
+
 												'before' => "",
-												
+
 												'after' => "",
-												
+
 												'link_before' => "",
-												
+
 												'link_after' => "",
-												
+
 												'depth' => 0,
-												
-												'walker' => "" 
-												
+
+												'walker' => ""
+
 												) );
 											?>
 										</div>
@@ -196,33 +196,33 @@
 											<?php wp_nav_menu ( array (
 
 												'menu' => 'menu_principal_modal_oibgh_c3',
-												
+
 												'theme_location' => 'menu_principal_modal_oibgh_c3',
-												
+
 												'container' => 'div',
-												
+
 												'container_class' => 'mega-menu',
-												
+
 												'container_id' => '',
-												
+
 												'menu_class' => '',
-												
+
 												'echo' => true,
-												
+
 												'menu_id' => 'id-menu',
-												
+
 												'before' => "",
-												
+
 												'after' => "",
-												
+
 												'link_before' => "",
-												
+
 												'link_after' => "",
-												
+
 												'depth' => 0,
-												
-												'walker' => "" 
-												
+
+												'walker' => ""
+
 												) );
 											?>
 										</div>
@@ -252,33 +252,33 @@
 											<?php wp_nav_menu ( array (
 
 												'menu' => 'menu_principal_modal_unidades',
-												
+
 												'theme_location' => 'menu_principal_modal_unidades',
-												
+
 												'container' => 'div',
-												
+
 												'container_class' => 'mega-menu',
-												
+
 												'container_id' => '',
-												
+
 												'menu_class' => '',
-												
+
 												'echo' => true,
-												
+
 												'menu_id' => 'id-menu',
-												
+
 												'before' => "",
-												
+
 												'after' => "",
-												
+
 												'link_before' => "",
-												
+
 												'link_after' => "",
-												
+
 												'depth' => 0,
-												
-												'walker' => "" 
-												
+
+												'walker' => ""
+
 												) );
 											?>
 										</div>
@@ -287,8 +287,8 @@
 							</div>
 						</div>
 					</div>
-				</div><!--/#Modal2 -->	
+				</div><!--/#Modal2 -->
 			</div>
 		</nav>
 	</div>
-</div>
+</div> 

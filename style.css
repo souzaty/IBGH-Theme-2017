@@ -11,38 +11,6 @@
  Text Domain: IBGH
  Tags: hospital, OS, Organização Social
 
- /*--------------------------------------------------------------
- >>> TABLE OF CONTENTS:
- ----------------------------------------------------------------
- # Variables
- # Normalize
- # Typography
- 	## Headings
- 	## Copy
- # Elements
- 	## Lists
- 	## Tables
- # Forms
- 	## Buttons
- 	## Fields
- # Navigation
- 	## Links
- 	## Menus
- 	## Next & Previous
- # Accessibility
- # Alignments
- # Clearings
- # Layout
- # Widgets
- # Content
- 	## Archives
- 	## Posts and pages
- 	## Comments
- # Blocks
- # Media
- 	## Captions
- 	## Galleries
- --------------------------------------------------------------*/
  /**
   * 1.4 - Reset
   *
@@ -50,7 +18,7 @@
   * work of Eric Meyer, Nicolas Gallagher, Jonathan Neal, and Blueprint.
   */
 
-  
+
  /*
   * Chrome renders extra-wide &nbsp; characters for the Hoefler Text font.
   * This results in a jumping cursor when typing in both the Classic and block

@@ -1,5 +1,5 @@
 <?php
-   /* Template Name: BLOG IBGH */
+   /* Template Name: BLOG */
 ?>
 <?php get_header(); ?>
 <section class="interna-ibgh title-page">
