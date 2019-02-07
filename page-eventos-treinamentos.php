@@ -1,5 +1,5 @@
 <?php
-   /* Template Name: EVENTOS E TREINAMENTOS IBGH */
+   /* Template Name: Eventos e Treinamentos */
 ?>
 <?php get_header(); ?>
 <section class="interna-ibgh title-page">
@@ -44,7 +44,7 @@
                   </div>
                </article>
             </div>
-            <?php endwhile; ?>            
+            <?php endwhile; ?>
             <!-- Pagination -->
             <?php if ( function_exists('wp_bootstrap_pagination') )
                  wp_bootstrap_pagination();

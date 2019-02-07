@@ -1,5 +1,5 @@
 <?php
-	/* Template Name: PAGINA PADRAO IBGH */
+	/* Template Name: Página Padrão */
 ?>
 <?php get_header(); ?>
 <section class="interna-ibgh title-page">

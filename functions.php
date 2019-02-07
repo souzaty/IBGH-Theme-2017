@@ -447,54 +447,54 @@ add_shortcode('carousel_membros', 'carousel_membros_short');
 // ========== Start Widgets
 
 register_sidebar(array(
-	'name' => 'IBGH Footer Sidebar 1',
+	'name' => 'Footer Sidebar 1',
 	'id' => 'ibgh-footer-sidebar-1',
-	'description' => 'Appears in the footer area',
+	'description' => 'Aparece na área de rodapé',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h4 class="widget-title">',
 	'after_title' => '</h4>'
 ));
 register_sidebar(array(
-	'name' => 'IBGH Footer Sidebar 2',
+	'name' => 'Footer Sidebar 2',
 	'id' => 'ibgh-footer-sidebar-2',
-	'description' => 'Appears in the footer area',
+	'description' => 'Aparece na área de rodapé',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h4 class="widget-title">',
 	'after_title' => '</h4>'
 ));
 register_sidebar(array(
-	'name' => 'IBGH Footer Sidebar 3',
+	'name' => 'Footer Sidebar 3',
 	'id' => 'ibgh-footer-sidebar-3',
-	'description' => 'Appears in the footer area',
+	'description' => 'Aparece na área de rodapé',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h4 class="widget-title">',
 	'after_title' => '</h4>'
 ));
 register_sidebar(array(
-	'name' => 'IBGH Footer Sidebar 4',
+	'name' => 'Footer Sidebar 4',
 	'id' => 'ibgh-footer-sidebar-4',
-	'description' => 'Appears in the footer area',
+	'description' => 'Aparece na área de rodapé',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s footer-menu">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h4 class="widget-title">',
 	'after_title' => '</h4>'
 ));
 register_sidebar(array(
-	'name' => 'Blog IBGH',
+	'name' => 'Blog',
 	'id' => 'blog-ibgh',
-	'description' => '',
+	'description' => 'Aparece na área de Blog',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h4 class="widget-title">',
 	'after_title' => '</h4>'
 ));
 register_sidebar(array(
-	'name' => 'Eventos e Treinamentos IBGH',
+	'name' => 'Eventos e Treinamentos',
 	'id' => 'eventos-treinamentos-ibgh',
-	'description' => '',
+	'description' => 'Aparece na área na barra lateral da página de Eventos e Treinamentos',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 	'after_widget' => '</aside>',
 	'before_title' => '<h4 class="widget-title">',
