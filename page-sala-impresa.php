@@ -32,9 +32,7 @@
 										<option value="ibgh,unidades">Filtrar por</option>
 										<option class="level-0" value="ibgh">IBGH</option>
 										<option class="level-1" value="heelj">Hospital Estadual Ernestina Lopes Jaime</option>
-										<option class="level-1" value="hma">Hospital Municipal de Aragua&iacute;na</option>
-										<option class="level-1" value="upa-araguaina">UPA Walter Fernandes de Goian&eacute;sia</option>
-										<option class="level-1" value="upa-goianesia">UPA Anat&oacute;lio Dias Carneiro de Aragua&iacute;na</option>
+										<option class="level-1" value="hmap">Hospital Municipal de Aparecida de Goiânia</option>
 									</select>
 								</div>
 								<input type="text" class="form-control input-label" aria-label="..." type="search" name="pesquisa_imprensa" id="pesquisa_imprensa">
