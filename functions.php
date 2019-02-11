@@ -168,11 +168,22 @@ register_sidebar(array(
 // ========== Start Admin Page
 
 function ibgh_add_admin_page() {
-    add_menu_page( 'IBGH Theme Options', 'IBGH', 'manage_options', 'alecaddd-ibgh', 'ibgh_theme_create_page', get_template_directory_uri() . '/img/ibgh0icon.png', 110 );
+
+    // Generate IBGH Admin Page
+    add_menu_page( 'IBGH Theme Options', 'IBGH', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page', get_template_directory_uri() . '/img/ibgh-icon.png', 110 );
+
+    // Generate IBGH Admin Page
+    add_submenu_page( 'alecaddd_ibgh', 'IBGH Theme Options', 'Informações de Contato', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page' );
+
+    add_submenu_page( 'alecaddd_ibgh', 'IBGH CSS Options', 'Custom CSS', 'manage_options', 'alecaddd_ibgh_css', 'ibgh_theme_settings_page' );
 }
 add_action( 'admin_menu', 'ibgh_add_admin_page' );
 
 function ibgh_theme_create_page() {
+    //generate admin page
+}
+
+function ibgh_theme_create_subpage() {
     //generate admin page
 }
 
