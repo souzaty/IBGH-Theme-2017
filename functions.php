@@ -180,7 +180,8 @@ function ibgh_add_admin_page() {
 add_action( 'admin_menu', 'ibgh_add_admin_page' );
 
 function ibgh_theme_create_page() {
-    echo '<h1> Informaçõess de Contato</h1>';
+
+    require_once( get_template_directory() . '/includes/templates/ibgh-admin.php' );
 }
 
 function ibgh_theme_settings_page() {
