@@ -190,7 +190,7 @@ function contato_ibgh() {
 		'publicly_queryable' => true,
 		'show_ui' => true,
 		'query_var' => true,
-		'menu_icon' => 'dashicons-chart-pie',
+		'menu_icon' => 'dashicons-email-alt',
 		'rewrite' => array(
 						'slug' => 'contato',
 						'with_front' => false

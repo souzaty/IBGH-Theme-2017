@@ -180,7 +180,7 @@
         						?>
         					</div>
         				</div>
-        				<!-- Modal1 -->
+        				<!-- Start Modal1 -->
         				<div class="modal fade bg-modal-menu" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
         					<div class="modal-dialog" role="document">
         						<div class="modal-content">
@@ -305,63 +305,7 @@
         							</div>
         						</div>
         					</div>
-        				</div><!-- /#Modal1 -->
-        				<!-- Modal2 -->
-        				<div class="modal fade bg-modal-menu" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2" aria-hidden="true">
-        					<div class="modal-dialog" role="document">
-        						<div class="modal-content">
-        							<div class="modal-header">
-        								<button type="button" class="close" data-dismiss="modal"
-        									aria-label="Close">
-        								<span aria-hidden="true">&times;</span>
-        								</button>
-        							</div>
-        							<div class="modal-body">
-        								<div class="row row-modal">
-        									<div class="container">
-        										<div class="col-md-12">
-        											<h1>UNIDADES</h1>
-        										</div>
-        										<div class="col-md-12">
-        											<?php wp_nav_menu ( array (
-
-        												'menu' => 'menu_principal_modal_unidades',
-
-        												'theme_location' => 'menu_principal_modal_unidades',
-
-        												'container' => 'div',
-
-        												'container_class' => 'mega-menu',
-
-        												'container_id' => '',
-
-        												'menu_class' => '',
-
-        												'echo' => true,
-
-        												'menu_id' => 'id-menu',
-
-        												'before' => "",
-
-        												'after' => "",
-
-        												'link_before' => "",
-
-        												'link_after' => "",
-
-        												'depth' => 0,
-
-        												'walker' => ""
-
-        												) );
-        											?>
-        										</div>
-        									</div>
-        								</div>
-        							</div>
-        						</div>
-        					</div>
-        				</div><!--/#Modal2 -->
+        				</div><!-- End #Modal1 -->
         			</div>
         		</nav>
         	</div>
