@@ -168,7 +168,7 @@ register_sidebar(array(
 // ========== Start Admin Page
 
 function ibgh_add_admin_page() {
-    add_menu_page( 'IBGH Theme Options', 'IBGH', 'manage_options', 'alecaadd-ibgh', 'ibgh_theme_create_page', get_template_directory_uri() . '/img/ibgh0icon.png', 110 );
+    add_menu_page( 'IBGH Theme Options', 'IBGH', 'manage_options', 'alecaddd-ibgh', 'ibgh_theme_create_page', get_template_directory_uri() . '/img/ibgh0icon.png', 110 );
 }
 add_action( 'admin_menu', 'ibgh_add_admin_page' );
 
