@@ -170,7 +170,7 @@ register_sidebar(array(
 function ibgh_add_admin_page() {
 
     // Generate IBGH Admin Page
-    add_menu_page( 'IBGH Theme Options', 'IBGH', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page', get_template_directory_uri() . '/img/ibgh-icon.png', 110 );
+    add_menu_page( 'Informações de econtato', 'IBGH', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page', get_template_directory_uri() . '/img/ibgh-icon.png', 110 );
 
     // Generate IBGH Admin Page
     add_submenu_page( 'alecaddd_ibgh', 'IBGH Theme Options', 'Informações de Contato', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page' );
@@ -187,7 +187,7 @@ function ibgh_custom_settings() {
     register_setting( 'ibgh-settings-group', 'phone_number' );
 
     add_settings_section( 'ibgh-sidebar-options', 'Sidebar Option', 'ibgh_sidebar_options', 'alecaddd_ibgh');
-    add_settings_field( 'sidebar-name', 'First Name', 'ibgh_sidebar_name', 'alecaddd_ibgh', 'ibgh-sidebar-options');
+    add_settings_field( 'sidebar-name', 'Nome empresa', 'ibgh_sidebar_name', 'alecaddd_ibgh', 'ibgh-sidebar-options');
     add_settings_field( 'sidebar-phone', 'Phone', 'ibgh_sidebar_phone', 'alecaddd_ibgh', 'ibgh-sidebar-options');
     add_settings_field( 'sidebar-mail', 'Email', 'ibgh_sidebar_mail', 'alecaddd_ibgh', 'ibgh-sidebar-options');
     add_settings_field( 'sidebar-address', 'Endereço', 'ibgh_sidebar_address', 'alecaddd_ibgh', 'ibgh-sidebar-options');
@@ -196,19 +196,23 @@ function ibgh_custom_settings() {
 }
 
 function ibgh_sidebar_options() {
-    echo 'customize your page';
+    echo 'Altere as informações de contato da empresa';
 }
 function ibgh_sidebar_name() {
     $firstName = esc_attr( get_option( 'first_name' ) );
-    echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First Name" />';
+    echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="Nome empresa" />';
 }
-function ibgh_sidebar_phone() {
-    $phoneNumber = esc_attr( get_option( 'phone_number' ) );
-    echo '<input type="text" name="phone_number" value="'.$phoneNumber.'" placeholder="Phone  Number" />';
+function ibgh_sidebar_cnpj() {
+    $cnpj = esc_attr( get_option( 'cnpj' ) );
+    echo '<input type="text" name="cnpj" value="'.$cnpj.'" placeholder="CNPJ" />';
 }
 function ibgh_sidebar_mail() {
     $mail = esc_attr( get_option( 'mail' ) );
-    echo '<input type="text" name="mail" value="'.$mail.'" placeholder="Email" />';
+    echo '<input type="text" name="mail" value="'.$mail.'" placeholder="E-mail" />';
+}
+function ibgh_sidebar_phone() {
+    $phoneNumber = esc_attr( get_option( 'phone_number' ) );
+    echo '<input type="text" name="phone_number" value="'.$phoneNumber.'" placeholder="Telefone" />';
 }
 function ibgh_sidebar_address() {
     $address = esc_attr( get_option( 'address' ) );
@@ -218,13 +222,6 @@ function ibgh_sidebar_cep() {
     $cep = esc_attr( get_option( 'cep' ) );
     echo '<input type="text" name="cep" value="'.$cep.'" placeholder="CEP" />';
 }
-function ibgh_sidebar_cnpj() {
-    $cnpj = esc_attr( get_option( 'cnpj' ) );
-    echo '<input type="text" name="cnpj" value="'.$cnpj.'" placeholder="CNPJ" />';
-}
-
-
-
 function ibgh_theme_create_page() {
     require_once( get_template_directory() . '/inc/templates/ibgh-admin.php' );
 }
