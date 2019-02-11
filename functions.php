@@ -180,11 +180,11 @@ function ibgh_add_admin_page() {
 add_action( 'admin_menu', 'ibgh_add_admin_page' );
 
 function ibgh_theme_create_page() {
-    //generate admin page
+    echo '<h1> Informaçõess de Contato</h1>';
 }
 
-function ibgh_theme_create_subpage() {
-    //generate admin page
+function ibgh_theme_settings_page() {
+    echo '<h1> Custom CSS</h1>';
 }
 
 // ========== Start CPT - Custom Post Types
