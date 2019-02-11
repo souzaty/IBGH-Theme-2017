@@ -187,6 +187,10 @@ function ibgh_custom_settings() {
     add_settings_section( 'ibgh-sidebar-options', 'Sidebar Options', 'ibgh_sidebar_options', 'alecaddd_ibgh' );
 }
 
+function ibgh_sidebar_options() {
+    echo 'customize your page';
+}
+
 function ibgh_theme_create_page() {
     require_once( get_template_directory() . '/includes/templates/ibgh-admin.php' );
 }
