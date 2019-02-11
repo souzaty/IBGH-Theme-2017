@@ -176,8 +176,16 @@ function ibgh_add_admin_page() {
     add_submenu_page( 'alecaddd_ibgh', 'IBGH Theme Options', 'Informações de Contato', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page' );
 
     add_submenu_page( 'alecaddd_ibgh', 'IBGH CSS Options', 'Custom CSS', 'manage_options', 'alecaddd_ibgh_css', 'ibgh_theme_settings_page' );
+
+    // Activate custom settings
+    add_action ( 'admin_init', 'ibgh_custom_settings' );
 }
 add_action( 'admin_menu', 'ibgh_add_admin_page' );
+
+function ibgh_custom_settings() {
+    register_setting( 'ibgh-settings-group', 'first_name' );
+    add_settings_section( 'ibgh-sidebar-options', 'Sidebar Options', 'ibgh_sidebar_options', 'alecaddd_ibgh' );
+}
 
 function ibgh_theme_create_page() {
     require_once( get_template_directory() . '/includes/templates/ibgh-admin.php' );
