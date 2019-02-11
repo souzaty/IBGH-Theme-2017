@@ -19,7 +19,6 @@
   ## Remove Meta Generator
 # Widgets
 # CPT Custom Post Types
-  ## CPT Contato
   ## CPT Diretoria
   ## CPT Unidades
   ## CPT Indicadores
@@ -166,49 +165,6 @@ register_sidebar(array(
 ));
 
 // ========== Start CPT - Custom Post Types
-
-// Start CPT Contato
-add_action('init', 'contato_ibgh');
-function contato_ibgh() {
-	$labels = array(
-		'name' => __('Contato', 'Tipo de post para incluir informações de contato.'),
-		'singular_name' => __('Contato IBGH', 'post type singular name'),
-		'all_items' => __('Contatos'),
-		'add_new' => _x('Novo contato', 'Novo contato'),
-		'add_new_item' => __('Add novo contato'),
-		'edit_item' => __('Editar contato'),
-		'new_item' => __('Novo contato Item'),
-		'view_item' => __('Ver item do contato'),
-		'search_items' => __('Procurar contato'),
-		'not_found' => __('Nenhum contato encontrado'),
-		'not_found_in_trash' => __('Nenhum contrato encontrado na lixeira'),
-		'parent_item_colon' => ''
-	);
-	$args   = array(
-		'labels' => $labels,
-		'public' => true,
-		'publicly_queryable' => true,
-		'show_ui' => true,
-		'query_var' => true,
-		'menu_icon' => 'dashicons-email-alt',
-		'rewrite' => array(
-						'slug' => 'contato',
-						'with_front' => false
-		),
-		'capability_type' => 'post',
-		'hierarchical' => false,
-		'menu_position' => 6,
-		'taxonomies' => array(
-						'post_tag'
-		),
-		'supports' => array(
-						'title',
-						'revisions'
-		)
-);
-	register_post_type('contato-ibgh', $args);
-	flush_rewrite_rules();
-}
 
 // Start CPT Diretoria
 add_action('init', 'diretoria_conselho');
