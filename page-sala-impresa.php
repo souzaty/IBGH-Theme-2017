@@ -13,11 +13,6 @@
 	<div class="container gutter-0">
 		<div class="">
 			<div class="col-md-9">
-				<!-- Breadcrumb -->
-				<div class="breadcrumb">
-					<?php wp_custom_breadcrumbs(); ?>
-				</div>
-                <!-- End Breadcrumb -->
 				<div class="row">
 					<div class="col-lg-12">
 						<form class="busca-transparencia" role="search" id="busca-transparencia" method="get" action="<?php echo get_site_url(); ?>/transparencia-resultado/">
