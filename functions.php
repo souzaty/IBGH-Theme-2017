@@ -184,8 +184,15 @@ add_action( 'admin_menu', 'ibgh_add_admin_page' );
 
 function ibgh_custom_settings() {
     register_setting( 'ibgh-settings-group', 'first_name' );
+    register_setting( 'ibgh-settings-group', 'phone_number' );
+
     add_settings_section( 'ibgh-sidebar-options', 'Sidebar Option', 'ibgh_sidebar_options', 'alecaddd_ibgh');
     add_settings_field( 'sidebar-name', 'First Name', 'ibgh_sidebar_name', 'alecaddd_ibgh', 'ibgh-sidebar-options');
+    add_settings_field( 'sidebar-phone', 'Phone', 'ibgh_sidebar_phone', 'alecaddd_ibgh', 'ibgh-sidebar-options');
+    add_settings_field( 'sidebar-mail', 'Email', 'ibgh_sidebar_mail', 'alecaddd_ibgh', 'ibgh-sidebar-options');
+    add_settings_field( 'sidebar-address', 'Endereço', 'ibgh_sidebar_address', 'alecaddd_ibgh', 'ibgh-sidebar-options');
+    add_settings_field( 'sidebar-cep', 'CEP', 'ibgh_sidebar_cep', 'alecaddd_ibgh', 'ibgh-sidebar-options');
+    add_settings_field( 'sidebar-cnpj', 'CNPJ', 'ibgh_sidebar_cnpj', 'alecaddd_ibgh', 'ibgh-sidebar-options');
 }
 
 function ibgh_sidebar_options() {
@@ -195,6 +202,28 @@ function ibgh_sidebar_name() {
     $firstName = esc_attr( get_option( 'first_name' ) );
     echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First Name" />';
 }
+function ibgh_sidebar_phone() {
+    $phoneNumber = esc_attr( get_option( 'phone_number' ) );
+    echo '<input type="text" name="phone_number" value="'.$phoneNumber.'" placeholder="Phone  Number" />';
+}
+function ibgh_sidebar_mail() {
+    $mail = esc_attr( get_option( 'mail' ) );
+    echo '<input type="text" name="mail" value="'.$mail.'" placeholder="Email" />';
+}
+function ibgh_sidebar_address() {
+    $address = esc_attr( get_option( 'address' ) );
+    echo '<input type="text" name="address" value="'.$address.'" placeholder="Endereço" />';
+}
+function ibgh_sidebar_cep() {
+    $cep = esc_attr( get_option( 'cep' ) );
+    echo '<input type="text" name="cep" value="'.$cep.'" placeholder="CEP" />';
+}
+function ibgh_sidebar_cnpj() {
+    $cnpj = esc_attr( get_option( 'cnpj' ) );
+    echo '<input type="text" name="cnpj" value="'.$cnpj.'" placeholder="CNPJ" />';
+}
+
+
 
 function ibgh_theme_create_page() {
     require_once( get_template_directory() . '/inc/templates/ibgh-admin.php' );
