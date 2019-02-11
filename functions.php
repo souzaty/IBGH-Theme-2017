@@ -188,11 +188,11 @@ function ibgh_custom_settings() {
 
     add_settings_section( 'ibgh-sidebar-options', 'Sidebar Option', 'ibgh_sidebar_options', 'alecaddd_ibgh');
     add_settings_field( 'sidebar-name', 'Nome empresa', 'ibgh_sidebar_name', 'alecaddd_ibgh', 'ibgh-sidebar-options');
-    add_settings_field( 'sidebar-phone', 'Phone', 'ibgh_sidebar_phone', 'alecaddd_ibgh', 'ibgh-sidebar-options');
+    add_settings_field( 'sidebar-cnpj', 'CNPJ', 'ibgh_sidebar_cnpj', 'alecaddd_ibgh', 'ibgh-sidebar-options');
     add_settings_field( 'sidebar-mail', 'Email', 'ibgh_sidebar_mail', 'alecaddd_ibgh', 'ibgh-sidebar-options');
+    add_settings_field( 'sidebar-phone', 'Phone', 'ibgh_sidebar_phone', 'alecaddd_ibgh', 'ibgh-sidebar-options');
     add_settings_field( 'sidebar-address', 'Endereço', 'ibgh_sidebar_address', 'alecaddd_ibgh', 'ibgh-sidebar-options');
     add_settings_field( 'sidebar-cep', 'CEP', 'ibgh_sidebar_cep', 'alecaddd_ibgh', 'ibgh-sidebar-options');
-    add_settings_field( 'sidebar-cnpj', 'CNPJ', 'ibgh_sidebar_cnpj', 'alecaddd_ibgh', 'ibgh-sidebar-options');
 }
 
 function ibgh_sidebar_options() {
