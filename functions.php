@@ -173,7 +173,7 @@ function ibgh_add_admin_page() {
     add_menu_page( 'Informações de econtato', 'IBGH', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page', get_template_directory_uri() . '/img/ibgh-icon.png', 110 );
 
     // Generate IBGH Admin Page
-    add_submenu_page( 'alecaddd_ibgh', 'IBGH Theme Options', 'Informações de Contato', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page' );
+    add_submenu_page( 'alecaddd_ibgh', 'Informações de contato', 'Informações de Contato', 'manage_options', 'alecaddd_ibgh', 'ibgh_theme_create_page' );
 
     add_submenu_page( 'alecaddd_ibgh', 'IBGH CSS Options', 'Custom CSS', 'manage_options', 'alecaddd_ibgh_css', 'ibgh_theme_settings_page' );
 
@@ -186,7 +186,7 @@ function ibgh_custom_settings() {
     register_setting( 'ibgh-settings-group', 'first_name' );
     register_setting( 'ibgh-settings-group', 'phone_number' );
 
-    add_settings_section( 'ibgh-sidebar-options', 'Sidebar Option', 'ibgh_sidebar_options', 'alecaddd_ibgh');
+    add_settings_section( 'ibgh-sidebar-options', 'Altere as informações de contato da empresa', 'ibgh_sidebar_options', 'alecaddd_ibgh');
     add_settings_field( 'sidebar-name', 'Nome empresa', 'ibgh_sidebar_name', 'alecaddd_ibgh', 'ibgh-sidebar-options');
     add_settings_field( 'sidebar-cnpj', 'CNPJ', 'ibgh_sidebar_cnpj', 'alecaddd_ibgh', 'ibgh-sidebar-options');
     add_settings_field( 'sidebar-mail', 'Email', 'ibgh_sidebar_mail', 'alecaddd_ibgh', 'ibgh-sidebar-options');
@@ -196,7 +196,7 @@ function ibgh_custom_settings() {
 }
 
 function ibgh_sidebar_options() {
-    echo 'Altere as informações de contato da empresa';
+    echo 'Todos os campos são obrigatórios';
 }
 function ibgh_sidebar_name() {
     $firstName = esc_attr( get_option( 'first_name' ) );
