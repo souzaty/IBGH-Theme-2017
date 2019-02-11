@@ -169,19 +169,19 @@ register_sidebar(array(
 
 // Start CPT Contato
 add_action('init', 'contato_ibgh');
-function indicadores_ibgh() {
+function contato_ibgh() {
 	$labels = array(
 		'name' => __('Contato', 'Tipo de post para incluir informações de contato.'),
 		'singular_name' => __('Contato IBGH', 'post type singular name'),
-		'all_items' => __('Indicadores'),
-		'add_new' => _x('Novo indicador', 'Novo indicador'),
-		'add_new_item' => __('Add novo indicador'),
-		'edit_item' => __('Editar indicador'),
-		'new_item' => __('Novo indicador Item'),
-		'view_item' => __('Ver item do indicador'),
-		'search_items' => __('Procurar indicador'),
-		'not_found' => __('Nenhum indicador encontrado'),
-		'not_found_in_trash' => __('Nenhum indicador encontrado na lixeira'),
+		'all_items' => __('Contatos'),
+		'add_new' => _x('Novo contato', 'Novo contato'),
+		'add_new_item' => __('Add novo contato'),
+		'edit_item' => __('Editar contato'),
+		'new_item' => __('Novo contato Item'),
+		'view_item' => __('Ver item do contato'),
+		'search_items' => __('Procurar contato'),
+		'not_found' => __('Nenhum contato encontrado'),
+		'not_found_in_trash' => __('Nenhum contrato encontrado na lixeira'),
 		'parent_item_colon' => ''
 	);
 	$args   = array(
