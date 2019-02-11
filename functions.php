@@ -184,15 +184,16 @@ add_action( 'admin_menu', 'ibgh_add_admin_page' );
 
 function ibgh_custom_settings() {
     register_setting( 'ibgh-settings-group', 'first_name' );
-    add_settings_section( 'ibgh-sidebar-options', 'Sidebar Options', 'ibgh_sidebar_options', 'alecaddd_ibgh' );
-    add_settings_field( 'sidebar-name', 'First Name', 'ibgh_sidebar_name', 'alecaddd_ibgh', 'ibgh-sidebar-options' );
+    add_settings_section( 'ibgh-sidebar-options', 'Sidebar Option', 'ibgh_sidebar_options', 'alecaddd_ibgh');
+    add_settings_field( 'sidebar-name', 'First Name', 'ibgh_sidebar_name', 'alecaddd_ibgh', 'ibgh-sidebar-options');
 }
 
 function ibgh_sidebar_options() {
     echo 'customize your page';
 }
 function ibgh_sidebar_name() {
-    echo '<input type="text" name="first_name" value="" /> ';
+    $firstName = esc_attr( get_option( 'first_name' ) );
+    echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First Name" />';
 }
 
 function ibgh_theme_create_page() {
@@ -200,7 +201,7 @@ function ibgh_theme_create_page() {
 }
 
 function ibgh_theme_settings_page() {
-    echo '<h1> Custom CSS</h1>';
+    echo '<h1>Custom CSS</h1>';
 }
 
 // ========== Start CPT - Custom Post Types
