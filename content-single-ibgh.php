@@ -102,7 +102,7 @@
 <section id="numeros-full" class="ghost" style="background-color: #f2f2f2;">
 	<div class="container">
 		<div class="row">
-			<?php include 'includes/ibgh-section_numbers_full.php'; ?>
+			<?php include 'inc/ibgh-section_numbers_full.php'; ?>
 		</div>
 	</div>
 </section>

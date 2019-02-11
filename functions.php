@@ -185,14 +185,18 @@ add_action( 'admin_menu', 'ibgh_add_admin_page' );
 function ibgh_custom_settings() {
     register_setting( 'ibgh-settings-group', 'first_name' );
     add_settings_section( 'ibgh-sidebar-options', 'Sidebar Options', 'ibgh_sidebar_options', 'alecaddd_ibgh' );
+    add_settings_field( 'sidebar-name', 'First Name', 'ibgh_sidebar_name', 'alecaddd_ibgh', 'ibgh-sidebar-options' );
 }
 
 function ibgh_sidebar_options() {
     echo 'customize your page';
 }
+function ibgh_sidebar_name() {
+    echo '<input type="text" name="first_name" value="" /> ';
+}
 
 function ibgh_theme_create_page() {
-    require_once( get_template_directory() . '/includes/templates/ibgh-admin.php' );
+    require_once( get_template_directory() . '/inc/templates/ibgh-admin.php' );
 }
 
 function ibgh_theme_settings_page() {

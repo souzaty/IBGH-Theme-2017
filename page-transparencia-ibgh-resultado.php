@@ -53,7 +53,7 @@
   <section id="numeros-full" class="ghost">
     <div class="container">
       <div class="row gutter-0">
-        <?php include 'includes/ibgh-section_numbers_full.php'; ?>
+        <?php include 'inc/ibgh-section_numbers_full.php'; ?>
       </div>
     </div>
   </section>

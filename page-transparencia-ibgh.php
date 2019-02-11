@@ -55,7 +55,7 @@
    <section id="numeros-full" class="ghost">
       <div class="container">
          <div class="row gutter-0">
-               <?php include 'includes/ibgh-section_numbers_full.php'; ?>
+               <?php include 'inc/ibgh-section_numbers_full.php'; ?>
          </div>
       </div>
    </section>
@@ -127,7 +127,7 @@
                                   $wp_query->query('post_type=transparencia&tipo-documento=ibgh-balancetes&posts_per_page=100');
                                   $count = 0;
                                   ?>
-                                <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                <?php include 'inc/transparencia-resultado-lista.php'; ?>
                               </div>
                               <div class="tab-pane" id="balancos">
                                 <?php
@@ -135,7 +135,7 @@
                                   $wp_query->query('post_type=transparencia&tipo-documento=ibgh-balancos&posts_per_page=100');
                                   $count = 0;
                                   ?>
-                                <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                <?php include 'inc/transparencia-resultado-lista.php'; ?>
                               </div>
                             </div>
                           </div>
@@ -195,7 +195,7 @@
                                   $wp_query->query('post_type=transparencia&tipo-documento=ibgh-relacao-de-gestores&posts_per_page=100');
                                   $count = 0;
                                   ?>
-                                <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                <?php include 'inc/transparencia-resultado-lista.php'; ?>
                               </div>
                               <div class="tab-pane" id="relacao-diretores">
                                 <?php
@@ -203,7 +203,7 @@
                                   $wp_query->query('post_type=transparencia&tipo-documento=ibgh-relacao-de-gestores&posts_per_page=100');
                                   $count = 0;
                                   ?>
-                                <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                <?php include 'inc/transparencia-resultado-lista.php'; ?>
                               </div>
                               <div class="tab-pane" id="processos-seletivos">
                                 <?php
@@ -211,7 +211,7 @@
                                   $wp_query->query('post_type=transparencia&tipo-documento=ibgh-processos-seletivos&posts_per_page=100');
                                   $count = 0;
                                   ?>
-                                <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                <?php include 'inc/transparencia-resultado-lista.php'; ?>
                               </div>
                               <div class="tab-pane" id="ses">
                                 <?php
@@ -219,7 +219,7 @@
                                   $wp_query->query('post_type=transparencia&tipo-documento=ibgh-transferencia-ses&posts_per_page=100');
                                   $count = 0;
                                   ?>
-                                <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                <?php include 'inc/transparencia-resultado-lista.php'; ?>
                               </div>
                               <div class="tab-pane" id="organograma">
                                 <?php
@@ -227,7 +227,7 @@
                                   $wp_query->query('post_type=transparencia&tipo-documento=ibgh-organograma&posts_per_page=100');
                                   $count = 0;
                                   ?>
-                                <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                <?php include 'inc/transparencia-resultado-lista.php'; ?>
                               </div>
                             </div>
                           </div>
@@ -282,7 +282,7 @@
                             <div class="col-xs-12 col-sm-8 col-lg-8 no-padding right">
                               <div id="content-transparencia" class="tab-content">
                                 <div class="tab-pane active" id="alvaras">
-                                  <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                  <?php include 'inc/transparencia-resultado-lista.php'; ?>
                                 </div>
                                 <div class="tab-pane" id="alvaras">
                                   <?php
@@ -290,7 +290,7 @@
                                     $wp_query->query('post_type=transparencia&tipo-documento=ibgh-alvaras&posts_per_page=100');
                                     $count = 0;
                                     ?>
-                                  <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                  <?php include 'inc/transparencia-resultado-lista.php'; ?>
                                 </div>
                                 <div class="tab-pane" id="atas">
                                   <?php
@@ -298,7 +298,7 @@
                                     $wp_query->query('post_type=transparencia&tipo-documento=ibgh-atas&posts_per_page=100');
                                     $count = 0;
                                     ?>
-                                  <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                  <?php include 'inc/transparencia-resultado-lista.php'; ?>
                                 </div>
                                 <div class="tab-pane" id="comissoes">
                                   <?php
@@ -307,7 +307,7 @@
                                     $count = 0;
                                     ?>
                                   <?php
-                                    include 'includes/transparencia-resultado-lista.php';
+                                    include 'inc/transparencia-resultado-lista.php';
                                     ?>
                                 </div>
                                 <div class="tab-pane" id="pareceres">
@@ -317,7 +317,7 @@
                                     $count = 0;
                                     ?>
                                   <?php
-                                    include 'includes/transparencia-resultado-lista.php';
+                                    include 'inc/transparencia-resultado-lista.php';
                                     ?>
                                 </div>
                                 <div class="tab-pane" id="processo-de-aquisicao">
@@ -326,7 +326,7 @@
                                     $wp_query->query('post_type=transparencia&tipo-documento=ibgh-processo-de-aquisicao&posts_per_page=100');
                                     $count = 0;
                                     ?>
-                                  <?php include 'includes/transparencia-resultado-lista.php'; ?>
+                                  <?php include 'inc/transparencia-resultado-lista.php'; ?>
                                 </div>
                                 <div class="tab-pane" id="relatorio-de-atividades">
                                   <?php
@@ -335,7 +335,7 @@
                                     $count = 0;
                                     ?>
                                   <?php
-                                    include 'includes/transparencia-resultado-lista.php';
+                                    include 'inc/transparencia-resultado-lista.php';
                                     ?>
                                 </div>
                               </div>
@@ -393,7 +393,7 @@
                                     $count = 0;
                                     ?>
                                   <?php
-                                    include 'includes/transparencia-resultado-lista.php';
+                                    include 'inc/transparencia-resultado-lista.php';
                                     ?>
                                 </div>
                                 <div class="tab-pane" id="resumo-de-contratos">
@@ -403,7 +403,7 @@
                                     $count = 0;
                                     ?>
                                   <?php
-                                    include 'includes/transparencia-resultado-lista.php';
+                                    include 'inc/transparencia-resultado-lista.php';
                                     ?>
                                 </div>
                                 <div class="tab-pane" id="regulamentos">
@@ -413,7 +413,7 @@
                                     $count = 0;
                                     ?>
                                   <?php
-                                    include 'includes/transparencia-resultado-lista.php';
+                                    include 'inc/transparencia-resultado-lista.php';
                                     ?>
                                 </div>
                               </div>
@@ -467,7 +467,7 @@
                                     $count = 0;
                                     ?>
                                   <?php
-                                    include 'includes/transparencia-resultado-lista.php';
+                                    include 'inc/transparencia-resultado-lista.php';
                                     ?>
                                 </div>
                               </div>

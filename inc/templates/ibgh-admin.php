@@ -3,6 +3,7 @@
    <form class=""  method="post" action="">
        <?php settings_fields ( 'ibgh-settings-groups' ); ?>
        <?php do_settings_sections('alecaddd_ibgh'); ?>
+       <?php submit_button( '' ); ?>
    </form>
 
 </body>
