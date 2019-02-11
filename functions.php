@@ -180,7 +180,6 @@ function ibgh_add_admin_page() {
 add_action( 'admin_menu', 'ibgh_add_admin_page' );
 
 function ibgh_theme_create_page() {
-
     require_once( get_template_directory() . '/includes/templates/ibgh-admin.php' );
 }
 
@@ -461,10 +460,6 @@ function indicadores_ibgh() {
 add_action("admin_init", "campos_personalizados_indicadores_ibgh");
 function campos_personalizados_indicadores_ibgh() {
 	add_meta_box("indicador_ibgh", "Indicadores IBGH", "indicador_ibgh", "indicadores-ibgh", "normal", "low");
-	add_meta_box("indicador_heelj", "Indicadores HEELJ", "indicador_heelj", "indicadores-ibgh", "normal", "low");
-	add_meta_box("indicador_hma", "Indicadores HMA", "indicador_hma", "indicadores-ibgh", "normal", "low");
-	add_meta_box("indicador_upa_a", "Indicadores UPA ARAGUAINA", "indicador_upa_a", "indicadores-ibgh", "normal", "low");
-	add_meta_box("indicador_upa_macapa", "Indicadores UPA MACAPA", "indicador_upa_macapa", "indicadores-ibgh", "normal", "low");
 }
 function indicador_ibgh() {
 	global $post;
