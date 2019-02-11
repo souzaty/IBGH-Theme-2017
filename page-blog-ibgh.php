@@ -15,11 +15,6 @@
    <div class="container">
       <div class="row">
          <div class="col-md-9">
-            <!-- Breadcrumb -->
-            <div class="breadcrumb">
-               <?php wp_custom_breadcrumbs(); ?>
-            </div>
-            <!-- End Breadcrumb -->
             <!-- Main Blog Content -->
             <!-- Post 01 -->
             <?php global $post;
