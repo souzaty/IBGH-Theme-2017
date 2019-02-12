@@ -1162,15 +1162,10 @@ function unidades_short($atts) {
 						$unidades     = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'unidades');
 						$link_unidade = get_post_meta($post->ID, 'link_unidade', true);
 					?>
-					<div class="<?php if ($count == 1) {
-                    	echo active;
-							}
-							?>active item">
-                        <a href="<?php echo $link_unidade;
-                        	?>" target="_blank">
-                        <img src="<?php echo $unidades;
-                        	?>" class="img-responsive" data-target="#carousel-main" data-slide-to="<?php echo $count;
-                        	?>"></a>
+					<div>
+                        <a href=" <?php echo $link_unidade; ?> " target="_blank">
+                            <img src="<?php echo $unidades; ?>" class="img-responsive" data-target="#carousel-main" data-slide-to="<?php echo $count; ?>">
+                        </a>
                     </div>
                     <?php
                     	endwhile;
@@ -1200,7 +1195,7 @@ function carousel_unidades_short($atts) {
                 <div class="carousel-inner vertical">
 	                <?php
 						$wp_query = new WP_Query();
-						$wp_query->query('post_type=unidades&posts_per_page=-1&orderby=date&order=ASC');
+						$wp_query->query('post_type=unidades_footer&posts_per_page=-1&orderby=date&order=ASC');
 						$count = 0;
 					?>
 					<?php
@@ -1210,16 +1205,16 @@ function carousel_unidades_short($atts) {
 						$count++;
 					?>
 					<?php
-						$unidades     = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'unidades');
-						$link_unidade = get_post_meta($post->ID, 'link_unidade', true);
+						$unidades_footer     = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'unidades_footer');
+						$link_unidade_footer = get_post_meta($post->ID, 'link_unidade_footer', true);
 					?>
 					<div class="<?php if ($count == 1) {
                     	echo active;
 							}
 							?>active item">
-                        <a href="<?php echo $link_unidade;
+                        <a href="<?php echo $link_unidade_footer;
                         	?>" target="_blank">
-                        <img src="<?php echo $unidades;
+                        <img src="<?php echo $unidades_footer;
                         	?>" class="img-responsive" data-target="#carousel-main" data-slide-to="<?php echo $count;
                         	?>"></a>
                     </div>
