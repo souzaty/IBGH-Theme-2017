@@ -63,7 +63,8 @@ add_theme_support('post-thumbnails');
 add_filter('jpeg_quality', create_function('', 'return 100;'));
 set_post_thumbnail_size(825, 510, true);
 add_image_size('membros-conselho', 283, 250, true);
-add_image_size('unidades', 110, 56, true);
+add_image_size('unidades', 720, 400, true);
+add_image_size('unidades_footer', 110, 56, true);
 add_image_size('servicos-heelj', 80, 80, true);
 add_image_size('noticias-home-heelj', 366, 232, true);
 add_image_size('corpo-clinico', 115, 115, true);
@@ -490,7 +491,7 @@ function unidades_footer_register()
 								),
 								'capability_type' => 'post',
 								'hierarchical' => false,
-								'menu_position' => 7,
+								'menu_position' => 8,
 								'supports' => array(
 												'title',
 												'thumbnail'
