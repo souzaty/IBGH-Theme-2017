@@ -28,6 +28,7 @@
   ## Cards Home
   ## Contato sidebar
   ## Carrouseel membros
+  ## Unidades Post
   ## Unidades Footer
   ## Pesquisa Sidebar
   ## Indicadores Sidebar
@@ -368,7 +369,6 @@ function membros_custom_columns($column)
 												break;
 				}
 }
-// End CPT Diretoria
 
 // Start CPT Unidades
 add_action('init', 'unidades_register');
@@ -457,7 +457,6 @@ function save_details_post_unidades()
 				global $post;
 				update_post_meta($post->ID, "link_unidade", $_POST["link_unidade"]);
 }
-// End CPT Unidades
 
 // Start CPT Indicadores
 add_action('init', 'indicadores_ibgh');
@@ -607,7 +606,6 @@ function save_details_post_indicadores_ibgh() {
 	update_post_meta($post->ID, "data_acumulado_ibgh", $_POST["data_acumulado_ibgh"]);
 	update_post_meta($post->ID, "frase_ibgh", $_POST["frase_ibgh"]);
 }
-// End CPT Indicadores
 
 // Start CPT Transparência
 add_action('init', 'transparencia_register');
@@ -945,7 +943,6 @@ function my_custom_formatting($content)
 				else
 								return wpautop($content);
 }
-// End Shortcode Cards Home
 
 // Start Shortcode Carrouseel membros
 function carousel_membros_short($atts)
@@ -1050,7 +1047,57 @@ function carousel_membros_short($atts)
 	return $content;
 }
 add_shortcode('carousel_membros', 'carousel_membros_short');
-// End Shortcode Carrouseel membros
+
+// Start Shortcode Unidades Post
+function unidades_short($atts) {
+    ob_start();
+    ?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div id="carousel-pager" class="carousel slide " data-ride="carousel" data-interval="500000000">
+                <!-- Carousel items -->
+                <div class="carousel-inner vertical">
+	                <?php
+						$wp_query = new WP_Query();
+						$wp_query->query('post_type=unidades&posts_per_page=-1&orderby=date&order=ASC');
+						$count = 0;
+					?>
+					<?php
+						if ($wp_query->have_posts()):
+						while ($wp_query->have_posts()):
+						$wp_query->the_post();
+						$count++;
+					?>
+					<?php
+						$unidades     = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'unidades');
+						$link_unidade = get_post_meta($post->ID, 'link_unidade', true);
+					?>
+					<div class="<?php if ($count == 1) {
+                    	echo active;
+							}
+							?>active item">
+                        <a href="<?php echo $link_unidade;
+                        	?>" target="_blank">
+                        <img src="<?php echo $unidades;
+                        	?>" class="img-responsive" data-target="#carousel-main" data-slide-to="<?php echo $count;
+                        	?>"></a>
+                    </div>
+                    <?php
+                    	endwhile;
+                    	endif;
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+		$content = ob_get_contents();
+		ob_end_clean();
+		return $content;
+}
+add_shortcode('unidades', 'unidades_short');
 
 // Start Shortcode Unidades Footer
 function carousel_unidades_short($atts) {
@@ -1111,7 +1158,6 @@ function carousel_unidades_short($atts) {
 		return $content;
 }
 add_shortcode('carousel_unidades', 'carousel_unidades_short');
-// End Shortcode Unidades Footer
 
 // Start Shortcode Pesquisa Sidebar
 function pesquisa_sidebar_($atts)
@@ -1140,7 +1186,6 @@ function pesquisa_sidebar_($atts)
 				return $content;
 }
 add_shortcode('pesquisa_sidebar', 'pesquisa_sidebar_');
-// End Shortcode Pesquisa Sidebar
 
 // Start Shortcode Indicadores Sidebar
 function indicadores_sidebar_($atts)
@@ -1410,7 +1455,6 @@ function indicadores_sidebar_($atts)
 				return $content;
 }
 add_shortcode('indicadores_sidebar', 'indicadores_sidebar_');
-// End Shortcode Indicadores Sidebar
 
 // Start Shortcode Missão Visão
 function ibgh_mv($atts, $content = null)
@@ -1447,7 +1491,6 @@ function ibgh_visao($atts, $content = null)
 				return ($incio_cont . $meio_cont . $fim_cont);
 }
 add_shortcode("visao", "ibgh_visao");
-// End Shortcode Missão Visão
 
 // Start Shortcode Princípios
 function ibgh_principios($atts, $content = null)
@@ -1486,7 +1529,6 @@ function ibgh_principio($atts, $content = null)
 				return ($incio_cont . $meio_cont . $fim_cont);
 }
 add_shortcode("principio", "ibgh_principio"); // add_filter( 'the_content', 'shortcode_unautop',100 );
-// End Shortcode Princípios
 
 // Start Shortcodes Indicadores Full
 function indicadores_ibgh_($atts)
@@ -1705,7 +1747,6 @@ function indicadores_ibgh_($atts)
 				return $content;
 }
 add_shortcode('indicadores_ibgh', 'indicadores_ibgh_');
-// End Shortcode Indicadores full
 
 // Start Script add meta box button upload
 add_action('admin_head', 'my_meta_uploader_script');
@@ -1764,7 +1805,6 @@ function my_admin_styles()
 }
 add_action('admin_print_scripts', 'my_admin_scripts');
 add_action('admin_print_styles', 'my_admin_styles');
-// End Script add meta box button upload
 
 // Start Excerpt
 function the_excerpt_lenght($before = '', $after = '', $echo = true, $length = false)
@@ -1835,5 +1875,4 @@ function my_login_logo_url_title() {
     return 'IBGH - Instituto Brasileiro de Gestão Hospitalar.';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
-// End Customize wp-login Page
 ?>
