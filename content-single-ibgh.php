@@ -22,13 +22,12 @@
 				</div>
 				<?php endwhile; endif; ?>
 			</article>
-			<div class="share">
+			<!--<div class="share">
 				<p class="share-text">
 					Compartilhe:
-					<!-- Go to www.addthis.com/dashboard to customize your tools -->
 				<div class="addthis_inline_share_toolbox"></div>
 				</p>
-			</div>
+			</div>-->
 			<!-- Read Too -->
 			<div>
 				<p class="read-too"> <img style="margin-right: 10px;" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/read-too-icon.png" alt="">Leia tamb&eacute;m</p>
