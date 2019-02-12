@@ -458,6 +458,94 @@ function save_details_post_unidades()
 				update_post_meta($post->ID, "link_unidade", $_POST["link_unidade"]);
 }
 
+// Start CPT Unidades Footer
+add_action('init', 'unidades_footer_register');
+function unidades_footer_register()
+{
+				$product_permalink = 'unidades_footer/%Formato%/';
+				$labels            = array(
+								'name' => __('Unidades Footer', 'Tipo de post para incluir as unidades.'),
+								'singular_name' => __('Lista de unidades', 'post type singular name'),
+								'all_items' => __('Todas as unidades'),
+								'add_new' => _x('Nova unidade', 'Nova unidade'),
+								'add_new_item' => __('Adicionar nova unidade'),
+								'edit_item' => __('Editar unidade'),
+								'new_item' => __('Nova unidade Item'),
+								'view_item' => __('Ver item da unidade'),
+								'search_items' => __('Procurar unidade'),
+								'not_found' => __('Nenhum unidade encontrado'),
+								'not_found_in_trash' => __('Nenhum unidade encontrado na lixeira'),
+								'parent_item_colon' => ''
+				);
+				$args              = array(
+								'labels' => $labels,
+								'public' => true,
+								'publicly_queryable' => true,
+								'show_ui' => true,
+								'query_var' => true,
+								'menu_icon' => 'dashicons-groups',
+								'rewrite' => array(
+												'slug' => 'unidades-footer/%Formato%',
+												'with_front' => false
+								),
+								'capability_type' => 'post',
+								'hierarchical' => false,
+								'menu_position' => 7,
+								'supports' => array(
+												'title',
+												'thumbnail'
+								)
+				);
+				register_post_type('unidades_footer', $args);
+				flush_rewrite_rules();
+}
+// Filter to change the permalink
+add_filter('post_link', 'unidades_permalink', 1, 3);
+add_filter('post_type_link', 'unidades_permalink', 1, 3);
+function unidades_footer_permalink($permalink, $post_id, $leavename)
+{
+				//con %brand% catturo il rewrite del Custom Post Type
+				if (strpos($permalink, '%unidades-footer%') === FALSE)
+								return $permalink;
+				// Get post
+				$post = get_post($post_id);
+				if (!$post)
+								return $permalink;
+				// Get taxonomy terms
+				$terms = wp_get_object_terms($post->ID, 'Formato');
+				if (!is_wp_error($terms) && !empty($terms) && is_object($terms[0]))
+								$taxonomy_slug = $terms[0]->slug;
+				else
+								$taxonomy_slug = 'no-brand';
+				return str_replace('%unidades-footer%', $taxonomy_slug, $permalink);
+}
+add_action("admin_init", "unidades_init");
+function unidades_footer_init()
+{
+				add_meta_box("link_unidade_footer", "Link do unidade", "link_unidade_footer", "unidades", "normal", "low");
+}
+function link_unidade_footer()
+{
+				global $post;
+				$custom       = get_post_meta($post->ID);
+				$link_unidade_footer = $custom["link_unidade_footer"][0];
+?>
+
+	  <p><label>Informe o link:</label><br />
+
+	  <input type="text" name="link_unidade_footer" value="<?php
+				echo $link_unidade_footer;
+?>" /></p>
+
+	<?php
+}
+add_action('save_post_unidades_footer', 'save_details_post_unidades_footer');
+function save_details_post_unidades_footer()
+{
+				global $post;
+				update_post_meta($post->ID, "link_unidade_footer", $_POST["link_unidade_footer"]);
+}
+
 // Start CPT Indicadores
 add_action('init', 'indicadores_ibgh');
 function indicadores_ibgh() {
