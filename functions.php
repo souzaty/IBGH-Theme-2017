@@ -26,6 +26,7 @@
   ## CPT Transparencia
 # Shortcodes
   ## Cards Home
+  ## Contato sidebar
   ## Carrouseel membros
   ## Unidades Footer
   ## Pesquisa Sidebar
@@ -835,6 +836,71 @@ add_action('wp_ajax_nopriv_buscaTransparencia', 'buscaTransparencia');
 
 // Enable the use of shortcodes in text widgets.
 add_filter('widget_text', 'do_shortcode');
+
+// Start Shortcode Contato Sidebar
+function contato_sidebar_short($atts, $content = null) { $inicio =
+	'<section id="destaque-heelj" style="background:transparent;">
+	<div class="gutter-0">
+		<div class="text-square-heelj">';
+			$fim    = '
+		</div>
+	</div>
+	</section>';
+	return ($inicio . do_shortcode($content) . $fim);
+}
+add_shortcode('contato_sidebar', 'contato_sidebar_short');
+function contato_sidebar_mapa_short($atts, $content = null) {
+	extract(shortcode_atts(array(
+		'class' => '',
+		'title' => '',
+		'link' => ''
+		), $atts));
+		$incio_cont =
+		'<div class="col-md-12 tel-destaque">
+            <div class="box">
+            	<a href="' . $link . '"><span class="' . $class . '"></span>
+            		<p class="text-box"><b>' . $title . '</b><br />'; $fim_cont   = '</p>
+            	</a>
+            </div>
+        </div>';
+        return ($incio_cont . $content . $fim_cont);
+}
+add_shortcode("contato_sidebar_mapa", "contato_sidebar_mapa_short");
+function contato_sidebar_telefone_short($atts, $content = null) {
+	extract(shortcode_atts(array(
+		'class' => '',
+		'title' => '',
+		'link' => ''
+		), $atts));
+		$incio_cont =
+		'<div class="col-md-12 local-destaque">
+			<div class="box">
+				<a href="' . $link . '"><span class="' . $class . '"></span>
+					<p class="text-box"><b>' . $title . '</b><br />'; $fim_cont   = '</p>
+				</a>
+            </div>
+        </div>';
+		return ($incio_cont . $content . $fim_cont);
+}
+add_shortcode("contato_sidebar_telefone", "contato_sidebar_telefone_short");
+function contato_sidebar_atendimento_short($atts, $content = null)
+{
+extract(shortcode_atts(array(
+		'class' => '',
+		'title' => '',
+		'link' => ''
+		), $atts));
+		$incio_cont =
+		'<div class="col-md-12 atendimento-destaque">
+			<div class="box">
+				<a href="' . $link . '"><span class="' . $class . '"></span>
+					<p class="text-box"><b>' . $title . '</b><br />'; $fim_cont   = '</p>
+				</a>
+            </div>
+        </div>';
+        return ($incio_cont . $content . $fim_cont);
+}
+add_shortcode("contato_sidebar_atendimento", "contato_sidebar_atendimento_short");
 
 // Start Shortcode Cards Home
 function ibgh_backface($atts, $content = null)
